@@ -6,7 +6,7 @@ start_server {tags {"modules"}} {
     test {Module string set} {
         r set k mystring
         assert_equal mystring [r get k]
-        assert_equal ok [r string.set k 123]
+        assert_equal OK [r string.set k 123]
         r get k
     } {123}
 

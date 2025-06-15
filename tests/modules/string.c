@@ -1,6 +1,4 @@
 #include "redismodule.h"
-#include <strings.h>
-#include <stdlib.h>
 
 #define UNUSED(x) (void)(x)
 
@@ -13,7 +11,6 @@ int string_set(RedisModuleCtx *ctx, RedisModuleString **argv, int argc) {
     RedisModuleKey *key = RedisModule_OpenKey(ctx, argv[1], REDISMODULE_WRITE);
 
     int result = RedisModule_StringSet(key, argv[2]);
-    RedisModule_RetainString(ctx, argv[2]);
     return RedisModule_ReplyWithSimpleString(ctx,"OK");
 }
 
